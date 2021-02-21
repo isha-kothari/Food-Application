@@ -1,0 +1,226 @@
+<div class="doodle-div1">
+    <div class="doodle-div2">
+        <div class="container main-div mx-auto shadow">
+            <div class="restaurantLayout">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#">Restaurants</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">South Diaries</li>
+                    </ol>
+                </nav>
+                <mat-grid-list class="restaurant-image-grid" cols="4" rowHeight="200px">
+                    <mat-grid-tile class="restaurant-image-tile" rowspan="2" colspan="2"><img
+                            src="../../../assets/restaurantHead.jfif"></mat-grid-tile>
+                    <mat-grid-tile class="restaurant-image-tile" rowspan="1" colspan="1"><img
+                            src="../../../assets/dessert1.jpg"></mat-grid-tile>
+                    <mat-grid-tile class="restaurant-image-tile" rowspan="1" colspan="1"><img
+                            src="../../../assets/dessert1.jpg"></mat-grid-tile>
+                    <mat-grid-tile class="restaurant-image-tile" rowspan="1" colspan="1"><img
+                            src="../../../assets/dessert1.jpg"></mat-grid-tile>
+                    <mat-grid-tile class="restaurant-image-tile" rowspan="1" colspan="1"><img
+                            src="../../../assets/dessert1.jpg"></mat-grid-tile>
+                </mat-grid-list>
+            </div>
+
+            <section class="d-flex justify-content-between">
+                <div class="left-rest-div">
+                    <section class="rest-info">
+                        <section>
+                            <h1 class="restaurant-name mt-2">South Diaries</h1>
+                            <div>
+                                <h3 class="restaurant-info text-secondary">South Indian Restaurant - South Indian,
+                                    Desserts</h3>
+                            </div>
+                            <h3 class="restaurant-info text-secondary">Vastrapur(Landmark)</h3>
+                        </section>
+                        <section>
+                            <h3 class="restaurant-info text-secondary"><span class="text-warning">Closed </span> - Open
+                                from 10
+                                am to 11 pm</h3>
+                        </section>
+                    </section>
+
+                </div>
+
+                <div class="right-rest-rating">
+                    <section>
+                        <h3 class="mt-2">Rating (3.5)</h3>
+                    </section>
+                </div>
+            </section>
+
+            <section>
+                <button mat-raised-button color="accent" class="add-review-button">Add Rating</button>
+                <button mat-raised-button color="accent" class="add-review-button">Directions</button>
+                <button mat-raised-button color="accent" class="add-review-button">Book Mark</button>
+                <button mat-raised-button color="accent" class="add-review-button">Add Review</button>
+            </section>
+
+            <section>
+                <mat-tab-group dynamicHeight mat-align-tabs="center" color="warn" class="rest-mat-tab">
+                    <mat-tab label="Overview" color="warn" class="label-danger main-rest-content">
+                        <h1 class="mt-2">Cuisines</h1>
+                        <button mat-stroked-button color="accent" class="cuisine-button">South Indian</button>
+                        <button mat-stroked-button color="accent" class="cuisine-button">Desserts</button>
+
+                        <h1 class="overview-title my-3">Popular Dishes</h1>
+                        <h2 class="overview-info display-4 text-secondary">Mysore Masala Dosa, Gwalior Dosa,
+                            Cheesecakes, Chocolate Pie, Mud Cake</h2>
+
+                        <h1 class="average-cost-title my-3">Average Cost</h1>
+                        <h2 class="average-cost-info display-4 text-secondary"> Rupees 250 for two people (approx)</h2>
+
+                        <h1 class="overview-title my-3">More Information</h1>
+                        <mat-chip-list aria-label="More Information" class="more-info-title">
+                            <mat-chip color="accent" class="more-info-chip">Home Delivery</mat-chip>
+                            <mat-chip color="accent" class="more-info-chip">Outdoor Seating</mat-chip>
+                            <mat-chip color="accent" class="more-info-chip">Desserts and Bakes</mat-chip>
+                            <mat-chip color="accent" class="more-info-chip">Vegetarian Only</mat-chip>
+                            <mat-chip color="accent" class="more-info-chip">Indoor Seating</mat-chip>
+                            <mat-chip color="accent" class="more-info-chip">Take Away</mat-chip>
+                        </mat-chip-list>
+
+
+                    </mat-tab>
+
+                    <mat-tab label="Order Online">
+                        <div class="rest-menu-main-div mx-auto mt-3">
+                            <mat-slide-toggle class="veg-slider mt-3 text-success">Pure Vegetarian</mat-slide-toggle>
+                            <h1 class="popular-dish mt-3">Popular Dishes</h1>
+
+                            <div class="rest-menu-div d-flex mt-3">
+                                <div class="rest-menu-image mr-3">
+                                    <img src="../../../assets/restaurantHead.jfif" alt="Sorry!">
+                                </div>
+
+                                <div class="rest-menu-content text-secondary d-flex justify-content-between">
+                                    <div class="rest-menu-content-subdiv1">
+                                        <h1 class="mb-0">South Indian Platter</h1>
+                                        <h2 class="mb-0">Rating (4.3)</h2>
+                                        <h3 class="mb-1">400 Rupees</h3>
+                                        <p>A delicious platter that consists of Meduvada, Idli, Dosa, Uttapam with our 3
+                                            flavours of Chutney</p>
+                                    </div>
+
+                                    <div class="rest-menu-content-subdiv2">
+                                        <!-- <button mat-stroked-button color="accent" class="add-to-cart-button"
+                                            (click)="addtocart(price)">Add to
+                                            Cart</button> -->
+
+                                        <mat-button-toggle-group name="fontStyle" aria-label="Font Style"
+                                            class="cart-qty-button text-secondary">
+                                            <mat-button-toggle value="bold">-</mat-button-toggle>
+                                            <mat-button-toggle value="italic" class="cart-count-item">1
+                                            </mat-button-toggle>
+                                            <mat-button-toggle value="underline">+</mat-button-toggle>
+                                        </mat-button-toggle-group>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="rest-menu-div d-flex mt-3">
+                                <div class="rest-menu-image mr-3">
+                                    <img src="../../../assets/restaurantHead.jfif" alt="Sorry!">
+                                </div>
+
+                                <div class="rest-menu-content text-secondary d-flex justify-content-between">
+                                    <div class="rest-menu-content-subdiv1">
+                                        <h1 class="mb-0">South Indian Platter</h1>
+                                        <h2 class="mb-0">Rating (4.3)</h2>
+                                        <h3 class="mb-1">400 Rupees</h3>
+                                        <p>A delicious platter that consists of Meduvada, Idli, Dosa, Uttapam with our 3
+                                            flavours of Chutney</p>
+                                    </div>
+
+                                    <div class="rest-menu-content-subdiv2">
+                                        <button mat-stroked-button color="accent" class="add-to-cart-button"
+                                            (click)="addtocart(price)">Add to
+                                            Cart</button>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="rest-menu-div d-flex mt-3">
+                                <div class="rest-menu-image mr-3">
+                                    <img src="../../../assets/restaurantHead.jfif" alt="Sorry!">
+                                </div>
+
+                                <div class="rest-menu-content text-secondary d-flex justify-content-between">
+                                    <div class="rest-menu-content-subdiv1">
+                                        <h1 class="mb-0">South Indian Platter</h1>
+                                        <h2 class="mb-0">Rating (4.3)</h2>
+                                        <h3 class="mb-1">400 Rupees</h3>
+                                        <p>A delicious platter that consists of Meduvada, Idli, Dosa, Uttapam with our 3
+                                            flavours of Chutney</p>
+                                    </div>
+
+                                    <div class="rest-menu-content-subdiv2">
+                                        <button mat-stroked-button color="accent" class="add-to-cart-button"
+                                            (click)="addtocart(price)">Add to
+                                            Cart</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </mat-tab>
+
+                    <mat-tab label="View Cart" class="row">
+                        <h1 class="mt-5 mb-0 text-center">Cart Details</h1>
+                        <h3 class="text-secondary text-center mt-0">2 Items</h3>
+                        <div class="cart-details mx-auto mt-3 mb-3 text-secondary col-6">
+                            <div class="cart-content-1 mx-auto">
+                                <img src="../../../assets/veg-icon.png" class="veg-icon">
+                                <div class="cart-item-details mx-auto justify-content-between d-flex">
+                                    <h3>South Indian Platter</h3>
+                                    <mat-button-toggle-group name="fontStyle" aria-label="Font Style"
+                                        class="cart-qty-button text-danger">
+                                        <mat-button-toggle value="bold">-</mat-button-toggle>
+                                        <mat-button-toggle value="italic" class="cart-count-item">1</mat-button-toggle>
+                                        <mat-button-toggle value="underline">+</mat-button-toggle>
+                                    </mat-button-toggle-group>
+                                    <h3>400 Rupees</h3>
+                                </div>
+                            </div>
+
+                            <div class="cart-content-2 mx-auto">
+                                <img src="../../../assets/veg-icon.png" class="mx-auto veg-icon">
+                                <div class="cart-item-details  mx-auto justify-content-between d-flex">
+                                    <h3>South Indian Platter</h3>
+                                    <mat-button-toggle-group name="fontStyle" aria-label="Font Style"
+                                        class="cart-qty-button text-danger">
+                                        <mat-button-toggle value="bold">-</mat-button-toggle>
+                                        <mat-button-toggle value="italic" class="cart-count-item">1</mat-button-toggle>
+                                        <mat-button-toggle value="underline">+</mat-button-toggle>
+                                    </mat-button-toggle-group>
+                                    <h3>400 Rupees</h3>
+                                </div>
+                            </div>
+
+                            <hr class="ruler text-secondary mt-5 mb-1">
+
+                            <div class="total text-secondary mt-3 justify-content-between d-flex">
+                                <div class="total-1">
+                                    <h3 class="mb-0"><b>Subtotal</b></h3>
+                                    <h5 class="mt-0">Extra Charges may apply</h5>
+                                </div>
+
+                                <div class="total-2">
+                                    <h3><b>Rupees 540</b></h3>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-center mt-4">
+                                <button mat-raised-button color="accent" class="checkout-button">CHECKOUT
+                                    -></button>
+                            </div>
+                        </div>
+                    </mat-tab>
+                </mat-tab-group>
+            </section>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,248 @@
+
+.doodle-div1{
+    background: url("../../../assets/background-doodle.jpg") repeat;
+    background-size: contain;
+    min-height: 100vh;
+    min-width: 100vw;
+}
+
+.doodle-div2{
+    background-color: rgb(255,255,255,0.92);
+    min-height: inherit;
+    min-width: inherit;
+}
+
+.main-div{
+    max-width: 1400px;   
+    background-color: white;
+}
+
+.breadcrumb{
+    background-color: white;
+}
+
+.breadcrumb-item, .breadcrumb-item a{
+    text-decoration: none;
+    color: rgb(244,67,54);
+    font-size: large;
+}
+
+.breadcrumb-item+.breadcrumb-item::before{
+    color: rgb(244,67,54);
+}
+
+.restaurant-image-grid .restaurant-image-tile img{
+    -webkit-transform: scale(1);
+	transform: scale(1);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+
+.restaurant-image-grid .restaurant-image-tile:hover img{
+    -webkit-transform: scale(1.2);
+	transform: scale(1.2);
+}
+
+
+.restaurant-image-tile {
+    background: transparent;
+    // float: right;
+    border: 3px solid white;
+  }
+
+.restaurant-name{
+    font-size: xx-large;
+    font-weight: 540;
+    font-family: Helvetica,sans-serif;
+}
+
+.restaurant-info{
+    font-size: medium;
+    font-weight: 500;
+    font-family: Helvetica,sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.left-rest-div{
+    width: 70%;
+}
+
+.right-rest-rating{
+    width: 30%;
+    height: max-content;
+}
+
+.add-review-button{
+    margin-right: 10px;
+    margin-top: 10px;
+    background-color: rgb(244,67,54);
+    color: white;
+}
+
+.mat-tab-label .mat-tab-label-content {
+    font-size: 50px !important;
+    color: rgb(244,67,54) !important;
+}
+
+::ng-deep .mat-tab-label .mat-tab-label-content {
+   
+    font-size: large;
+    color: rgb(244,67,54) !important;
+}
+
+
+.overview-title{
+
+    font-family: Helvetica,sans-serif;
+}
+
+.overview-info{
+    font-size: medium;
+    font-weight: 500;
+    font-family: Helvetica,sans-serif;
+}
+
+.cuisine-button{
+    border-radius: 10px;
+    border-color: lightgray; 
+    margin-right: 10px;
+    color: rgb(244,67,54);
+    cursor: default;
+    
+}
+
+.average-cost-title{
+    font-family: Helvetica,sans-serif;
+    
+}
+
+.average-cost-info{
+    font-size: medium;
+    font-weight: 500;
+    font-family: Helvetica,sans-serif;
+}
+
+.more-info-title{
+    font-size: large;
+    font-weight: 500;
+    font-family: Helvetica,sans-serif;
+    
+
+}
+
+.more-info-chip{
+    font-size: medium;
+    font-weight: 500;
+    font-family: Helvetica,sans-serif;
+    border: none;
+    background-color: rgb(244,67,54);
+    color: white;
+}
+
+::ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+    background-color: rgb(90, 228, 90);
+}
+
+
+::ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
+    background-color: rgb(52, 199, 52);
+}
+
+.rest-menu-div{
+    width: max-content;
+}
+
+.rest-menu-main-div{
+    width: max-content;
+}
+
+.rest-menu-image img{
+    height: 20vh;
+    width: 30vw;
+    min-width: 200px;
+    min-height: 200px;
+    max-width: 300px;
+    border-radius: 8px;
+}
+
+.rest-menu-content-subdiv1 h1{
+    font-size: x-large;
+    font-weight: 450;
+    color: black;
+}
+
+.rest-menu-content-subdiv1 h2{
+    font-size: medium;
+    font-weight: 200;
+}
+
+.rest-menu-content-subdiv1 h3{
+    font-size: medium;
+    font-weight: 200;
+}
+
+.rest-menu-content-subdiv1 p{
+    font-size: medium;
+    font-weight: 200;
+}
+
+.add-to-cart-button{
+    border-radius: 8px;
+    color: rgb(244,67,54);
+    border: 1px solid rgb(244,67,54);
+}
+
+.cart-qty-button{
+    border-radius: 8px;
+    color: rgb(244,67,54);
+    border: 1px solid rgb(244,67,54);
+    padding: 0 4px;
+    font-size: medium;
+}
+
+::ng-deep .mat-button-toggle-appearance-standard .mat-button-toggle-label-content{
+    line-height: 34px;
+}
+
+::ng-deep .cart-count-item .mat-button-toggle-label-content {
+    cursor: default;
+}
+
+.cart-details{
+    // border: 1px solid rgb(244,67,54);
+    box-shadow: 0px 22px 74px -18px rgba(255,67,54,0.56);
+    -webkit-box-shadow: 0px 22px 74px -18px rgba(255,67,54,0.56);
+    -moz-box-shadow: 0px 22px 74px -18px rgba(255,67,54,0.56);
+    z-index: 2;
+    padding: 30px;
+}
+
+.veg-icon{
+    height: 15px;
+    width: 15px;
+}
+
+.checkout-button{
+    width: 300px;
+    background-color: rgb(244,67,54);
+    border-radius: 0;
+}
+
+.total1{
+    float: left;
+}
+
+.total2{
+    float: right;
+}
+
+.ruler{
+    height: 1px;
+    background-color: rgb(244,67,54);
+}
+
+
+
+
+  
