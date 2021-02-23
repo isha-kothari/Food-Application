@@ -1,0 +1,16 @@
+<div class="cart-item mx-auto" *ngIf='cartItem!=undefined'>
+    <img src="../../../assets/veg-icon.png" class="veg-icon">
+    <div class="cart-item-details mx-auto justify-content-between row">
+        <h3 class="col-lg-4 col-12">{{foodItem.foodName}} </h3>
+        <div class="d-flex cart-qty-div col-lg-4 col-12 ">
+            <mat-button-toggle-group name="fontStyle" aria-label="Font Style"
+                class="cart-qty-button text-danger">
+                <mat-button-toggle value="bold">-</mat-button-toggle>
+                <mat-button-toggle value="italic" class="cart-count-item">{{cartItem.quantity}}
+                </mat-button-toggle>
+                <mat-button-toggle value="underline">+</mat-button-toggle>
+            </mat-button-toggle-group>
+        </div>
+        <h3 class="col-lg-4 col-12 text-right ">{{(foodItem.foodPrice*cartItem.quantity)|currency:"INR":"symbol"}}</h3>
+    </div>
+</div>

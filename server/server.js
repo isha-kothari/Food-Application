@@ -3,6 +3,9 @@ const dotenv = require('dotenv');
 const express = require('express');
 const userRoute = require('./routes/userRoute');
 const restaurantRoute = require('./routes/restaurantRoute');
+const deliverExecutiveRoute = require('./routes/deliveryExecutiveRoute');
+const orderRoute = require ('./routes/orderRoute');
+const cors = require("cors");
 
 dotenv.config();
 mongoose.connect(
@@ -21,22 +24,30 @@ db.on('error', console.error.bind(console, 'connection error'));
 const app = express();
 app.use(express.json());
 
+app.use(cors());
 
 app.use(userRoute);
 
 app.use(restaurantRoute);
 
+app.use(deliverExecutiveRoute);
+
+app.use(orderRoute);
+
 
 app.use("/", function(req, res){
     res.send("<h1>This is Home</h1>");
 })
+
+// Error Middleware
+
 app.listen(3000, function(err){
     if(err){
         // throw err;
         console.log(err);
     }
     else{
-        console.log("Server is running...");
+        console.log("Server is running on 3000...");
     }
 });
 
@@ -89,7 +100,7 @@ app.listen(3000, function(err){
 //         //         state:"Gujarat",
 //         //         country:"India",
 //         //         latitude:13.252564,
-//         //         longitude:14.25645, 
+//         //         longitude:14.25645,
 //         //     },
 //         //     activityStatus:true,
 //         //     // deliveryExecutiveRatings:[]
@@ -182,7 +193,7 @@ app.listen(3000, function(err){
 // })
 
 
-// *********** Cart Logic for Adding food, Removing food and Increasing Quantity 
+// *********** Cart Logic for Adding food, Removing food and Increasing Quantity
 
 // db.once('open', async function () {
 //     console.log("Connected");
@@ -236,10 +247,10 @@ app.listen(3000, function(err){
 //             },
 //             function (err, data) {
 //                 console.log("Added first time", data);
-                
+
 //             });
 //     }
-    
+
 // })
 
 
@@ -271,8 +282,8 @@ app.listen(3000, function(err){
 //         },
 //         totalAmount: {
 //             type: Number,
-            
-//         }, 
+
+//         },
 //         orderStatus:
 //         {
 //             ordered:true,
@@ -288,7 +299,7 @@ app.listen(3000, function(err){
 //                 foodId:{
 //                     type:String,
 //                     required:true
-//                 }, 
+//                 },
 //                 foodName: {
 //                     type: String,
 // ,
@@ -305,7 +316,7 @@ app.listen(3000, function(err){
 //                     required :true
 //                 },
 //                 foodImage: {
-//                     type: String, //Buffer later 
+//                     type: String, //Buffer later
 
 //                 },
 //                 foodPrice: {
@@ -340,7 +351,7 @@ app.listen(3000, function(err){
 //             }
 //         },
 //     })
-    
+
 // })
 
 // db.once('open',async function(){

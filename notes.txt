@@ -25,3 +25,24 @@ deletefromcart
 }
 
 deleteCart()
+
+
+
+
+if(cart)
+{
+    if(resId==cartResId)
+    {
+        if(foodid==cartfoodid)
+        {
+            +- button
+            with quantity
+        }
+        else{
+            add to cart button
+        }
+    }
+    else{
+        ask for clear cart
+    }
+}

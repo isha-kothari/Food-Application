@@ -10,8 +10,10 @@ router.get('/topRestaurants', restaurantController.getTopRestaurants);
 
 router.get('/getRestaurantById', restaurantController.getRestaurantById);
 
-// router.get('/topFoods',restaurantController.getTopFood);
+router.get('/topFoods',restaurantController.getTopFood);
 
 router.get('/searchRestaurants', restaurantController.searchRestaurants);
+
+router.get('/getFoodByRestaurant', restaurantController.getFoodByRestaurant);
 
 module.exports = router;
