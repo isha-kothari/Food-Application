@@ -1,86 +1,75 @@
-<!-- <div class="main-bill-div">
-    <h1>Billing Details</h1>
-    <h2>Order ID - #12356789</h2>
-    <hr class="ruler">
+<mat-tab-group dynamicHeight mat-align-tabs="center" color="warn" class="rest-mat-tab pb-5" [selectedIndex]="1">
+    <mat-tab label="Cart Summary" color="warn" class="label-danger main-rest-content">
 
-    <h3 class="mb-0">Offers</h3>
-    <div class="offers text-secondary d-flex justify-content-between mt-0">
-        <h4>Select a promo code</h4>
-        <button mat-stroked-button color="warn" class="view-offer-button">View Offers</button>
-    </div>
+        <app-view-cart></app-view-cart>
 
-    <div class="item-total text-secondary mt-2 d-flex justify-content-between">
-        <h3>Item Total</h3>
-        <h3>{{1600|currency:"INR":"symbol"}}</h3>
-    </div>
+    </mat-tab>
 
-    <div class="delivery-charge text-secondary mt-2 d-flex justify-content-between">
-        <h3>Delivery Charge</h3>
-        <h3>{{40|currency:"INR":"symbol"}}</h3>
-    </div>
+    <mat-tab label="Billing Details" activated>
 
-    <div class="grand-total text-secondary mt-2 d-flex justify-content-between">
-        <h2>Grand Total</h2>
-        <h2>{{1640|currency:"INR":"symbol"}}</h2>
-    </div>
+        <mat-card id="card" class="card mx-auto mt-5 mb-3">
+            <mat-card-title class="text-secondary">
+                Billing Details
+            </mat-card-title>
 
-    <div class="address-button mt-2 d-flex justify-content-between">
+            <mat-card-subtitle class="text-secondary">
+                <!-- <h2>Order ID - #12356789</h2> -->
+                <hr class="ruler">
+            </mat-card-subtitle>
 
-        <div class="d-flex justify-content-center mt-4">
-            <button mat-raised-button color="accent" class="location-button">Add Address Manually</button>
-        </div>
+            <mat-card-content>
+                <ng-container *ngIf="userCart.length != 0">
 
-        <div class="d-flex justify-content-center mt-4">
-            <button mat-raised-button color="accent" class="location-button">Take Address Using Location</button>
-        </div>
-    </div>
+                    <div class="text-secondary mt-2 d-flex justify-content-between align-items-end">
+                        <div class="text-left">
+                            <h3 class="mb-0">Ordered From</h3>
+                            <h2>{{restaurantData.restaurantName}}</h2>
+                        </div>
+                        <div class="mb-0">
+                            <h3>{{restaurantData.restaurantLocation.area}}, {{restaurantData.restaurantLocation.city}}
+                            </h3>
+                        </div>
+                    </div>
+                    <hr>
+                    <!-- <div class="offers text-secondary d-flex justify-content-between mt-0">
+                    <h4>Select a promo code</h4>
+                    <button mat-stroked-button color="warn" class="view-offer-button">Apply 20% OFF</button>
+                </div> -->
 
-</div> -->
+                    <div class="item-total text-secondary mt-2 d-flex justify-content-between">
+                        <h3>Item Total</h3>
+                        <h3>{{getSubTotal()|currency:"INR":"symbol"}}</h3>
+                    </div>
 
+                    <div class="delivery-charge text-secondary mt-2 d-flex justify-content-between">
+                        <h3>Delivery Charge</h3>
+                        <h3>{{40|currency:"INR":"symbol"}}</h3>
+                    </div>
 
-<mat-card id="card" class="card mx-auto mt-5">
-	<mat-card-title class="text-secondary">
-		Billing Details
-	</mat-card-title>
+                    <div class="grand-total text-secondary mt-2 d-flex justify-content-between">
+                        <h2>Grand Total</h2>
+                        <h2>{{getSubTotal()+40|currency:"INR":"symbol"}}</h2>
+                    </div>
 
-    <mat-card-subtitle class="text-secondary">
-        <h2>Order ID - #12356789</h2>
-        <hr class="ruler">
-    </mat-card-subtitle>
+                    <div class="address-button mt-2 d-flex justify-content-between">
 
-	<mat-card-content>
-        
+                        <div class="d-flex justify-content-center mt-4 mr-1">
+                            <button mat-raised-button color="accent" class="location-button">Add Address
+                                Manually</button>
+                        </div>
 
-        <div class="offers text-secondary d-flex justify-content-between mt-0">
-            <h4>Select a promo code</h4>
-            <button mat-stroked-button color="warn" class="view-offer-button">Apply 20% OFF</button>
-        </div>
-		
-        <div class="item-total text-secondary mt-2 d-flex justify-content-between">
-            <h3>Item Total</h3>
-            <h3>{{1600|currency:"INR":"symbol"}}</h3>
-        </div>
-    
-        <div class="delivery-charge text-secondary mt-2 d-flex justify-content-between">
-            <h3>Delivery Charge</h3>
-            <h3>{{40|currency:"INR":"symbol"}}</h3>
-        </div>
-    
-        <div class="grand-total text-secondary mt-2 d-flex justify-content-between">
-            <h2>Grand Total</h2>
-            <h2>{{1640|currency:"INR":"symbol"}}</h2>
-        </div>
-    
-        <div class="address-button mt-2 d-flex justify-content-between">
-    
-            <div class="d-flex justify-content-center mt-4 mr-1">
-                <button mat-raised-button color="accent" class="location-button">Add Address Manually</button>
-            </div>
-    
-            <div class="d-flex justify-content-center mt-4 mr-1">
-                <button mat-raised-button color="accent" class="location-button">Take Address Using Location</button>
-            </div>
-        </div>
+                        <div class="d-flex justify-content-center mt-4 mr-1">
+                            <button mat-raised-button color="accent" class="location-button">Take Address Using
+                                Location</button>
+                        </div>
+                    </div>
+                </ng-container>
 
-	</mat-card-content>
-</mat-card>
+                <ng-container *ngIf = 'userCart.length == 0'>
+                    
+                </ng-container>
+            </mat-card-content>
+        </mat-card>
+    </mat-tab>
+
+</mat-tab-group>

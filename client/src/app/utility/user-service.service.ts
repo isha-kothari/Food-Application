@@ -1,6 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
+import { ThrowStmt } from '@angular/compiler';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,33 +9,71 @@ import { Observable } from 'rxjs';
 export class UserServiceService {
 
   baseUrl:string = "http://localhost:3000/";  
-  
+  userOb:BehaviorSubject<any>=new BehaviorSubject(null);
   userData: any ;
   constructor(private http: HttpClient) {
-
   }
 
-  async getUser(): Promise<any>{
-    let userId: any = "602a4a5214315c2a00e234af";
-    if(this.userData==undefined){
-      let temp=await this.getUserById(userId).toPromise();
-      console.log(temp);
-      this.userData=temp.user;
+   getUser():Observable<any>{
+    if(this.userData==undefined)
+    {
+      this.updateUserDataLocal();
     }
-    return this.userData;
+        return this.userOb.asObservable();
   }
+
+  // async getUser(): Promise<any>{
+   
+  //   if(this.userData==undefined){
+  //       await this.updateUserDataLocal();
+  //   }
+  //   return this.userData;
+  // }
 
   getUserById(id:any):Observable<any>{
-    console.log('hello');
     
     let queryParam = new HttpParams({fromString:"id="+id});
-    // queryParam.append("id",'602ca48cf2697638d43f4f11');    
+
     return this.http.get<any>(this.baseUrl+"getUserById",{params:queryParam});
   }
 
+  updateUserDataLocal(){
+    let userId: any = "602a4a5214315c2a00e234af";
+    this.getUserById(userId).subscribe((data)=>{
 
-  incrementCartItem(){
+      this.userData=data.user;
+      this.userOb.next(this.userData);
+    });
+  }
+  // async updateUserDataLocal():Promise<any>{
+  //   let userId: any = "602a4a5214315c2a00e234af";
+  //   let temp=await this.getUserById(userId).toPromise();
+  //   this.userData=temp.user;
+  // }
 
+  incrementCartItem(foodItem:any):Observable<any>{
+    let userId: any = "602a4a5214315c2a00e234af";
+    let queryParam = new HttpParams({fromString:"userId="+userId+'&role=user'});
+    return this.http.put<any>(this.baseUrl+'addToCart',foodItem,{params:queryParam});
   }
   
+  
+  decrementCartItem(foodItem:any):Observable<any>{
+    let userId: any = "602a4a5214315c2a00e234af";
+    let queryParam = new HttpParams({fromString:"userId="+userId+'&role=user'});
+    return this.http.put<any>(this.baseUrl+'reduceCartItem',foodItem,{params:queryParam});
+  }
+
+  removeItem(foodItem:any):Observable<any>{
+    let userId: any = "602a4a5214315c2a00e234af";
+    let queryParam = new HttpParams({fromString:"userId="+userId+'&role=user'});
+    
+    return this.http.put<any>(this.baseUrl+'removeItem',foodItem,{params:queryParam});
+  }
+
+  clearCart():Observable<any>{
+    let userId:any="602a4a5214315c2a00e234af"
+    let queryParam = new HttpParams({fromString:"userId="+userId+'&role=user'});
+    return this.http.put<any>(this.baseUrl+'clearCart',null,{params:queryParam});
+  }
 }

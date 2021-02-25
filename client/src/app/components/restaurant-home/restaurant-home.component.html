@@ -9,7 +9,7 @@
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
                         <li class="breadcrumb-item"><a href="#">Restaurants</a></li>
                         <li class="breadcrumb-item active" aria-current="page">{{restaurantData.restaurantName}}</li>
-                    </ol>   
+                    </ol>
                 </nav>
                 <mat-grid-list class="restaurant-image-grid" cols="4" rowHeight="200px">
                     <mat-grid-tile class="restaurant-image-tile" rowspan="2" colspan="2"><img
@@ -31,21 +31,27 @@
                         <section>
                             <h1 class="restaurant-name mt-2">{{restaurantData.restaurantName}}</h1>
                             <div>
+                                <!-- <ng-container *ngFor = 'let cat of restaurantData.restaurantCategory'> -->
                                 <h3 class="restaurant-info text-secondary">
-                                    {{restaurantData.restaurantCategory}}
+                                    {{restaurantData.restaurantCategory | upperCaseConverter}}
                                 </h3>
+                                <!-- </ng-container> -->
+
                             </div>
-                            <h3 class="restaurant-info text-secondary">{{restaurantData.restaurantLocation.area}}, {{restaurantData.restaurantLocation.city}}</h3>
+                            <h3 class="restaurant-info text-secondary">{{restaurantData.restaurantLocation.area}},
+                                {{restaurantData.restaurantLocation.city}}</h3>
                         </section>
                         <section>
                             <h3 class="restaurant-info text-secondary">
                                 <span class="text-success" *ngIf="restaurantData.activityStatus == true">
-                                    Open 
+                                    Open
                                 </span>
                                 <span class="text-warning" *ngIf="restaurantData.activityStatus == false">
-                                    Closed 
+                                    Closed
                                 </span>
-                                - ( Open from {{restaurantData.workingHours.start}}:00 to {{restaurantData.workingHours.end}}:00 )</h3>                    
+                                - ( Open from {{restaurantData.workingHours.start}}:00 to
+                                {{restaurantData.workingHours.end}}:00 )
+                            </h3>
                         </section>
                     </section>
 
@@ -53,19 +59,20 @@
 
                 <div class="right-rest-rating mt-3 d-flex col-4">
                     <section>
-                        <star-rating class="mt-5" [value]=restaurantData.rating_avg [totalstars]=5 checkedcolor="orangered" uncheckedcolor="lightgrey" size="30px" [readonly]=true (rate)="onRate($event)"></star-rating>
-                        
-                        <h3 class="text-center text-secondary">({{restaurantData.restaurantRatings.length}} Ratings)</h3>
+                        <star-rating class="mt-5" [value]=restaurantData.rating_avg [totalstars]=5
+                            checkedcolor="orangered" uncheckedcolor="lightgrey" size="30px" [readonly]=true
+                            (rate)="onRate($event)"></star-rating>
+
+                        <h3 class="text-center text-secondary">({{restaurantData.restaurantRatings.length}} Ratings)
+                        </h3>
                     </section>
                     <h2 class="rating-avg bold mt-2">{{restaurantData.rating_avg}}</h2>
                 </div>
             </section>
 
             <section>
-                <button mat-raised-button color="accent" class="add-review-button">Add Rating</button>
+                <button mat-raised-button color="accent" class="add-review-button" (click) = "addRating()">Add Rating</button>
                 <button mat-raised-button color="accent" class="add-review-button">Directions</button>
-                <button mat-raised-button color="accent" class="add-review-button">Book Mark</button>
-                <button mat-raised-button color="accent" class="add-review-button">Add Review</button>
             </section>
 
             <section>
@@ -73,12 +80,14 @@
                     <mat-tab label="Overview" color="warn" class="label-danger main-rest-content">
                         <h1 class="mt-2">Cuisines</h1>
                         <ng-container *ngFor="let category of restaurantData.restaurantCategory">
-                            <button mat-stroked-button color="accent" class="cuisine-button">{{category}}</button>
-                        </ng-container>                                            
+                            <button mat-stroked-button color="accent" class="cuisine-button">{{category |
+                                upperCaseConverterButton}}</button>
+                        </ng-container>
 
                         <h1 class="overview-title my-3">Popular Dishes</h1>
-                        <h2 class="overview-info display-4 text-secondary">Mysore Masala Dosa, Gwalior Dosa,
-                            Cheesecakes, Chocolate Pie, Mud Cake</h2>
+                        <!-- <ng-container *ngFor='let food of getPopularDishes()'> -->
+                        <h2 class="overview-info display-4 text-secondary">{{getPopularDishes()}}</h2>
+                        <!-- </ng-container> -->
 
                         <h1 class="average-cost-title my-3">Average Cost</h1>
                         <h2 class="average-cost-info display-4 text-secondary"> Rupees 250 for two people (approx)</h2>
@@ -100,16 +109,19 @@
                         <div class=" container rest-menu-main-div mx-auto">
                             <mat-slide-toggle class="veg-slider mt-3 text-success">Pure Vegetarian</mat-slide-toggle>
                             <h1 class="popular-dish mt-3">Popular Dishes</h1>
-                            
+
                             <ng-container *ngFor='let food of foodData'>
-                                <app-food-item class="w-100 " [foodData]='food'></app-food-item>                                
+                                <app-food-item class="w-100 " [foodData]='food'></app-food-item>
                             </ng-container>
 
                         </div>
                     </mat-tab>
 
-                    <mat-tab label="View Cart">
-                        <app-view-cart></app-view-cart>
+                    <mat-tab label="View Cart ">
+                        <div class="w-100 overflow-auto">
+                            <app-view-cart></app-view-cart>
+
+                        </div>
                     </mat-tab>
                 </mat-tab-group>
             </section>

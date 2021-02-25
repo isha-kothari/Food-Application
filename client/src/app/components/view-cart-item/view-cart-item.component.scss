@@ -4,8 +4,7 @@
 }
 
 .cart-qty-div{
-    // width: 110px;
-    max-width: max-content;
+    min-width: max-content;
 }
 
 .cart-qty-button{
@@ -14,4 +13,10 @@
     border: 1px solid rgb(244,67,54);
     padding: 0 4px;
     font-size: medium;
+    min-width: max-content;
+}
+
+.cart-item-delete-btn{
+    line-height: 40px;
+    cursor: pointer;
 }

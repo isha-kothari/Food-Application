@@ -18,6 +18,8 @@ router.put('/addToCart',userController.addToCart);
 
 router.put('/reduceCartItem',userController.reduceCartItem);
 
+router.put('/removeItem', userController.removeItem);
+
 router.put('/clearCart',userController.clearCart);
 
 router.get('/getUserById',userController.getUserById);

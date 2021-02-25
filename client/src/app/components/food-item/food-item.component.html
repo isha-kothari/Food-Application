@@ -13,25 +13,32 @@
     </div>
 
     <div class="rest-menu-content-subdiv2 text-right  col-md-2 col-sm-12 col-xs-12">
-        <ng-container *ngIf='userData?.cart != undefined && userData?.cart.restaurantId == foodData.restaurantId '>
-            <ng-container *ngIf='cartItemIndex!=-1'>
+        <ng-container *ngIf='userData?.cart != undefined &&userData?.cart!=null && userData?.cart.restaurantId == foodData.restaurantId '>
+            <ng-container *ngIf='foodData.food == undefined || isFoodInCart(foodData.food._id) != -1'>
 
                 <mat-button-toggle-group name="fontStyle" aria-label="Font Style"
                     class="cart-qty-button text-secondary">
-                    <mat-button-toggle value="bold">-</mat-button-toggle>
+                    <mat-button-toggle value="bold" (click)='decrementItem(foodData.food._id)'>-</mat-button-toggle>
                     <mat-button-toggle value="italic" class="cart-count-item">
-                        {{userData.cart.foodList[cartItemIndex].quantity}}
+                        {{userData.cart.foodList[isFoodInCart(foodData.food._id)].quantity}}
                     </mat-button-toggle>
-                    <mat-button-toggle value="underline" (click)='incrementItem(foodData.food._id)'>+</mat-button-toggle>
+                    <mat-button-toggle value="underline" (click)='incrementItem(foodData.food._id)'>+
+                    </mat-button-toggle>
                 </mat-button-toggle-group>
             </ng-container>
 
-            <ng-container *ngIf='cartItemIndex==-1'>
-                <button mat-stroked-button color="accent" class="add-to-cart-button" (click)="addtocart(price)">Add to
+            <ng-container *ngIf='isFoodInCart(foodData.food._id)==-1'>
+                <button mat-stroked-button color="accent" class="add-to-cart-button"
+                    (click)="incrementItem(foodData.food._id)">Add to
                     Cart</button>
             </ng-container>
         </ng-container>
 
+        <ng-container *ngIf='userData?.cart === undefined || userData?.cart==null'>
+            <button mat-stroked-button color="accent" class="add-to-cart-button"
+                (click)="incrementItem(foodData.food._id)">Add to
+                Cart</button>
+        </ng-container>
 
     </div>
 

@@ -13,6 +13,10 @@ import { FoodItemComponent } from './components/food-item/food-item.component';
 import { ViewCartComponent } from './components/view-cart/view-cart.component';
 import { ViewCartItemComponent } from './components/view-cart-item/view-cart-item.component';
 import { HttpClientModule } from '@angular/common/http';
+import {MatIconModule} from '@angular/material/icon';
+import { UpperCaseConverterPipe } from './utility/upper-case-converter.pipe';
+import { UpperCaseConverterButtonPipe } from './utility/upper-case-converter-button.pipe';
+import { AddRatingDialogComponent } from './components/add-rating-dialog/add-rating-dialog.component'
 
 @NgModule({
   declarations: [
@@ -21,7 +25,10 @@ import { HttpClientModule } from '@angular/common/http';
     OrderBillComponent,
     FoodItemComponent,
     ViewCartComponent,
-    ViewCartItemComponent
+    ViewCartItemComponent,
+    UpperCaseConverterPipe,
+    UpperCaseConverterButtonPipe,
+    AddRatingDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +36,8 @@ import { HttpClientModule } from '@angular/common/http';
     MaterialModule,
     BrowserAnimationsModule,
     RatingModule,
-    HttpClientModule
+    HttpClientModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

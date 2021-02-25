@@ -8,7 +8,7 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatCardModule} from '@angular/material/card';
-
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [],
@@ -21,7 +21,8 @@ import {MatCardModule} from '@angular/material/card';
     MatSlideToggleModule,
     MatSnackBarModule,
     MatButtonToggleModule,
-    MatCardModule
+    MatCardModule,
+    MatDialogModule
   ],
   exports:[
     CommonModule,
@@ -32,7 +33,8 @@ import {MatCardModule} from '@angular/material/card';
     MatSlideToggleModule,
     MatSnackBarModule,
     MatButtonToggleModule,
-    MatCardModule
+    MatCardModule,
+    MatDialogModule
   ]
 })
 export class MaterialModule { }
