@@ -26,6 +26,7 @@ export class RestaurantHomeComponent implements OnInit, OnDestroy {
   userData: any = "";
   userObs;
   rating:number = 0;
+  pureVegChecked:boolean = false;
 
   constructor(private routes: ActivatedRoute, private _restaurantService: RestaurantServiceService, private _userService: UserServiceService, public dialog: MatDialog) {    
     routes.params.subscribe((param) => {
@@ -80,13 +81,16 @@ export class RestaurantHomeComponent implements OnInit, OnDestroy {
   }
 
   addRating() {
-    const dialogRef = this.dialog.open(AddRatingDialogComponent, {
-      data :{rating:this.rating}
-    });
+    const dialogRef = this.dialog.open(AddRatingDialogComponent);
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-      this.rating = result;
+      
+      this.rating = result;      
     });
+    
+  }
+
+  getRating(event:number){
+    this.rating = event;
   }
 
 }

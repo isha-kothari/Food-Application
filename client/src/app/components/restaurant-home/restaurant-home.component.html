@@ -4,13 +4,7 @@
     <div class="doodle-div2 m-0">
         <div class="container main-div mx-auto shadow">
             <div class="restaurantLayout">
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item"><a href="#">Restaurants</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">{{restaurantData.restaurantName}}</li>
-                    </ol>
-                </nav>
+
                 <mat-grid-list class="restaurant-image-grid" cols="4" rowHeight="200px">
                     <mat-grid-tile class="restaurant-image-tile" rowspan="2" colspan="2"><img
                             src="../../../assets/restaurantHead.jfif"></mat-grid-tile>
@@ -71,7 +65,10 @@
             </section>
 
             <section>
-                <button mat-raised-button color="accent" class="add-review-button" (click) = "addRating()">Add Rating</button>
+                <button mat-raised-button color="accent" class="add-review-button" (click)="addRating()">Add
+                    Rating</button>
+                <!-- <app-add-rating-dialog [value]='rating' (rating)='getRating($event)'>
+                </app-add-rating-dialog> -->
                 <button mat-raised-button color="accent" class="add-review-button">Directions</button>
             </section>
 
@@ -107,13 +104,12 @@
 
                     <mat-tab label="Order Online">
                         <div class=" container rest-menu-main-div mx-auto">
-                            <mat-slide-toggle class="veg-slider mt-3 text-success">Pure Vegetarian</mat-slide-toggle>
+                            <mat-slide-toggle class="veg-slider mt-3 text-success" [(ngModel)]="pureVegChecked">Pure Vegetarian</mat-slide-toggle>                            
                             <h1 class="popular-dish mt-3">Popular Dishes</h1>
 
-                            <ng-container *ngFor='let food of foodData'>
+                            <ng-container *ngFor='let food of foodData | pureVegFilter : pureVegChecked'>                                
                                 <app-food-item class="w-100 " [foodData]='food'></app-food-item>
                             </ng-container>
-
                         </div>
                     </mat-tab>
 

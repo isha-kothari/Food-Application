@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { RestaurantServiceService } from 'src/app/utility/restaurant-service.service';
 import { UserServiceService } from 'src/app/utility/user-service.service';
+import { MatDialog } from '@angular/material/dialog';
+import { AddAddressComponent } from '../add-address/add-address.component';
 
 @Component({
   selector: 'app-order-bill',
@@ -14,7 +16,7 @@ export class OrderBillComponent implements OnInit {
   userCart: any = "";
   userObs;
 
-  constructor(private _userService: UserServiceService, private _restaurantService: RestaurantServiceService) {
+  constructor(private _userService: UserServiceService, private _restaurantService: RestaurantServiceService, public dialog: MatDialog) {
     this.userObs = this._userService.getUser().subscribe((user) => {
       if (user?.cart != undefined && user?.cart != null) {
 
@@ -59,6 +61,14 @@ export class OrderBillComponent implements OnInit {
       })
     }
     return total;
+  }
+
+  addAddress(){
+    const dialogRef = this.dialog.open(AddAddressComponent);
+    dialogRef.afterClosed().subscribe(result => {
+      
+      // this.rating = result;      
+    });
   }
 
 }

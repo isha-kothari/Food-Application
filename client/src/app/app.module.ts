@@ -17,6 +17,9 @@ import {MatIconModule} from '@angular/material/icon';
 import { UpperCaseConverterPipe } from './utility/upper-case-converter.pipe';
 import { UpperCaseConverterButtonPipe } from './utility/upper-case-converter-button.pipe';
 import { AddRatingDialogComponent } from './components/add-rating-dialog/add-rating-dialog.component'
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { PureVegFilterPipe } from './utility/pure-veg-filter.pipe';
+import { AddAddressComponent } from './components/add-address/add-address.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,9 @@ import { AddRatingDialogComponent } from './components/add-rating-dialog/add-rat
     ViewCartItemComponent,
     UpperCaseConverterPipe,
     UpperCaseConverterButtonPipe,
-    AddRatingDialogComponent
+    AddRatingDialogComponent,
+    PureVegFilterPipe,
+    AddAddressComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +42,9 @@ import { AddRatingDialogComponent } from './components/add-rating-dialog/add-rat
     BrowserAnimationsModule,
     RatingModule,
     HttpClientModule,
-    MatIconModule
+    MatIconModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

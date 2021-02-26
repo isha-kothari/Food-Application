@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input} from '@angular/core';
 import { StarRatingComponent } from 'ng-starrating';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { Inject } from '@angular/core';
 
 @Component({
   selector: 'app-add-rating-dialog',
@@ -9,18 +11,26 @@ import { StarRatingComponent } from 'ng-starrating';
 export class AddRatingDialogComponent implements OnInit {
 
   value:number = 0;
+  
   totalstars:number = 0;
   readonly:boolean = false;
-  constructor() { }
+  constructor( public dialogRef: MatDialogRef<AddRatingDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: number) {
+
+   }
 
   ngOnInit(): void {
   }
 
   onRate($event: { oldValue: number, newValue: number, starRating: StarRatingComponent }) {
-      this.value = $event.newValue;
+      this.data = $event.newValue;
   }
 
   applyRating(){
-    console.log(this.value);
+    this.dialogRef.close(this.data);
+    // this.rating.emit(this.value);
   }
+
+  @Output() 
+  rating: EventEmitter<number> = new EventEmitter<number>();
 }

@@ -4,6 +4,6 @@
         [readonly]="false" (rate)="onRate($event)"></star-rating>
     <div class="d-flex justify-content-center">
         <button mat-button mat-dialog-close class="text-white mr-3 mt-3 add-rating-btn">Cancel</button>
-        <button mat-button class="bg-success text-white ml-2 mt-3" [mat-dialog-close]='data.rating'>Apply Rating</button>
+        <button mat-button  class="bg-success text-white ml-2 mt-3" (click)='applyRating()'>Apply Rating</button>
     </div>
 </section>

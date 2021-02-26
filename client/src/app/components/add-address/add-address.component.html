@@ -1,0 +1,56 @@
+<form [formGroup]="addressForm" (ngSubmit)="onSubmit()">
+
+    <!-- <label>
+        Street Address:
+        <input type=" text" formControlName="streetAddress">
+    </label>
+
+    <label>
+        Landmark:
+        <input type="text" formControlName="landmark">
+    </label>
+
+    <label>
+        Area:
+        <input type="text" formControlName="area">
+    </label>
+
+    <label>
+        City:
+        <input type="text" formControlName="city">
+    </label>
+
+    <label>
+        Zip:
+        <input type="text" formControlName="Zip">
+    </label>
+
+    <label>
+        State:
+        <input type="text" formControlName="state">
+    </label>
+
+    <label>
+        Country:
+        <input type="text" formControlName="country">
+    </label> -->
+
+    <div class="row  ml-1 mr-1">
+        <mat-form-field appearance="outline" class="col-md-6 mt-2">
+            <mat-label class="">Street address</mat-label>
+            <input matInput formControlName="streetAddress">
+        </mat-form-field>   
+        
+        <mat-form-field appearance="outline" class="col-md-6 mt-2">
+            <mat-label class="">Pincode</mat-label>
+            <input matInput formControlName="zip" type="number">
+            <!-- <mat-error *ngIf="registerForm.controls.zip.touched && registerForm.controls.zip.invalid">
+                <span *ngIf="registerForm.controls.zip.errors.pattern">Enter a valid 6 digit Pincode</span>
+            </mat-error> -->
+            </mat-form-field>   
+     
+    </div>
+
+    <button type="submit" [disabled]="!addressForm.valid">Add Address</button>
+
+</form>
